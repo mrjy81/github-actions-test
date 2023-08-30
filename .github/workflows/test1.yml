@@ -13,3 +13,8 @@ jobs:
         run: |
           npm -v
           node -v
+  run-shell-command-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo another string
+        run: echo "Bye World"
