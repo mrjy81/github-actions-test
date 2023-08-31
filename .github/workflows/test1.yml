@@ -18,3 +18,11 @@ jobs:
     steps:
       - name: echo another string
         run: echo "Bye World"
+
+      - name: python scripts
+        run: |
+          import platform
+          print('CPU Model : ',platform.processor())
+          print('CPU ARCH x86 or x64 : ',platform.machine())
+          print('OS : ', platform.platform())
+        shell: python
