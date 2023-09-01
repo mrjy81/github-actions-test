@@ -1,16 +1,26 @@
 name: github-workflow-test
 
 on:
-    - push
+  - push
 
 jobs:
-    simple-green-action:
-        runs-on: ubuntu-latest
-        steps:
-            - name: simple JS action
-              id: greet
-              uses: actions/hello-world-javascript-action@v1
-              with:
-                who-to-greet: mohammad
-            - name: Log greeting Time
-              run: echo "${{steps.greet.outputs.time}}"     
+  simple-green-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple JS action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: mohammad
+
+      - name: List directory before checkout
+        run: ls -a
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: List directory after checkout
+        run: ls -a
+
+      - name: Log greeting Time
+        run: echo "${{steps.greet.outputs.time}}"
